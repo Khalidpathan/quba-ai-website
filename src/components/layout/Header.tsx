@@ -45,7 +45,7 @@ const Header: React.FC = () => {
   }, [])
 
   const navigationItems = [
-    { name: 'QubaAI', href: '/', color: 'text-blue-300' },
+    { name: 'QubaAI', href: '/', color: 'text-white', text: 'text-2xl' },
     { name: 'Services', href: '/pricing', color: 'text-white' },
     { name: 'Work', href: '/features', color: 'text-white' },
     { name: 'Testimonials', href: '/features', color: 'text-white' },

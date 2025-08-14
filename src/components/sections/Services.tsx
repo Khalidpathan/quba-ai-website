@@ -1,163 +1,219 @@
+// @/components/ServicesSection.tsx
+
+"use client";
+
+import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
-import { Brain, Code, Database, Server, Bot, Cpu, BarChart3, Users, Shield, Zap } from 'lucide-react';
+import { Map, CodeXml, Bot, BrainCircuit, Server, DatabaseZap } from 'lucide-react';
 
-const Services = () => {
-  // Company services data
-  const aiServices = [
-    {
-      title: "AI Strategy Consulting",
-      description: "Strategic guidance on implementing AI solutions tailored to your business needs and goals.",
-      icon: Brain,
-      color: "from-blue-500 to-cyan-500"
-    },
-    {
-      title: "Custom AI Development",
-      description: "Bespoke AI solutions designed and developed specifically for your unique business challenges.",
-      icon: Code,
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Machine Learning Models",
-      description: "Advanced ML models that learn from your data to make predictions and automate decision-making.",
-      icon: Database,
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      title: "Natural Language Processing",
-      description: "Text analysis solutions that understand, interpret, and generate human language for your applications.",
-      icon: Bot,
-      color: "from-orange-500 to-red-500"
-    }
-  ];
+// --- Reusable ServiceCard Component (No changes needed here) ---
+interface CardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  children: React.ReactNode;
+}
 
-  // Service features
-  const serviceFeatures = [
-    { icon: Cpu, title: 'AI Integration', desc: 'Seamless system integration' },
-    { icon: BarChart3, title: 'Data Analytics', desc: 'Actionable business insights' },
-    { icon: Shield, title: 'AI Security', desc: 'Protected AI implementations' },
-    { icon: Zap, title: 'Performance Optimization', desc: 'Efficient AI solutions' }
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const ServiceCard: React.FC<CardProps> = ({ title, description, icon, children }) => (
+  <motion.div
+    variants={cardVariants}
+    className="relative flex flex-col justify-between p-6 bg-black/20 rounded-2xl border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden hover:border-purple-400/50 transition-colors duration-300"
+    style={{
+      backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)',
+      backgroundSize: '1.5rem 1.5rem'
+    }}
+  >
+    <div className="flex flex-col items-start gap-3">
+      <div className="text-2xl text-purple-300">{icon}</div>
+      <h3 className="text-xl font-semibold text-white">{title}</h3>
+      <p className="text-sm text-gray-400">{description}</p>
+    </div>
+    <div className="my-5 h-24 flex items-center justify-center overflow-hidden">{children}</div>
+    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-500/10 to-transparent pointer-events-none"></div>
+  </motion.div>
+);
+
+// --- 1. AI Strategy & MVP Design Visual ---
+const StrategyVisual = () => {
+    // A visual that shows points connecting to form a clear path, representing strategy.
+    const points = [[-40, 0], [0, -20], [40, 0]];
+    return (
+        <svg width="100" height="40" viewBox="-50 -30 100 60" className="w-full h-full">
+            <motion.path
+                d={`M ${points[0][0]} ${points[0][1]} L ${points[1][0]} ${points[1][1]} L ${points[2][0]} ${points[2][1]}`}
+                strokeWidth="2"
+                stroke="rgba(167, 139, 250, 0.5)"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1, ease: "easeInOut", repeat: Infinity, repeatType: "reverse", repeatDelay: 1 }}
+            />
+            {points.map((p, i) => (
+                <motion.circle
+                    key={i}
+                    cx={p[0]}
+                    cy={p[1]}
+                    r="4"
+                    fill="#a78bfa"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: i * 0.3, repeat: Infinity, repeatType: "mirror", repeatDelay: 2.4 }}
+                />
+            ))}
+        </svg>
+    );
+};
+
+// --- 2. Custom AI Development Visual ---
+const DevelopmentVisual = () => {
+    // Abstract representation of code blocks transforming.
+    return (
+        <motion.div
+            className="w-16 h-16 border-2 border-purple-400/50 rounded-lg flex items-center justify-center"
+            animate={{ rotate: [0, 90, 180, 270, 360] }}
+            transition={{ duration: 8, ease: "linear", repeat: Infinity }}
+        >
+            <motion.div
+                className="w-8 h-8 bg-purple-300/80 rounded-sm"
+                animate={{ scale: [1, 0.8, 1], borderRadius: ["10%", "50%", "10%"] }}
+                transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
+            ></motion.div>
+        </motion.div>
+    );
+};
+
+// --- 3. GenAI & LLM Solutions Visual ---
+const GenAIVisual = () => {
+    // Simulates waves of thought or data being processed by a central core.
+    return (
+        <div className="w-full h-full flex items-center justify-center">
+            <div className="relative w-16 h-16">
+                {[...Array(4)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className="absolute inset-0 border-2 border-purple-300 rounded-full"
+                        initial={{ opacity: 1, scale: 0 }}
+                        animate={{ opacity: 0, scale: 1.5 }}
+                        transition={{
+                            duration: 2,
+                            ease: "linear",
+                            delay: i * 0.5,
+                            repeat: Infinity,
+                            repeatType: "loop",
+                        }}
+                    />
+                ))}
+                <BrainCircuit className="absolute inset-0 m-auto w-8 h-8 text-purple-300" />
+            </div>
+        </div>
+    );
+};
+
+// --- 4. AI Agents & Automation Visual ---
+const AutomationVisual = () => {
+    // Represents autonomous agents (dots) moving along a predefined circuit.
+    return (
+        <div className="w-24 h-16 relative">
+            <svg viewBox="0 0 100 60" className="w-full h-full">
+                <path d="M 10 30 C 10 10, 40 10, 50 30 S 90 50, 90 30" stroke="rgba(255,255,255,0.1)" strokeWidth="2" fill="none" />
+            </svg>
+            <motion.div
+                className="w-3 h-3 bg-purple-400 rounded-full absolute"
+                style={{ top: '50%', left: '10%', transform: 'translate(-50%, -50%)' }}
+                animate={{ offsetDistance: "100%" }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+            />
+        </div>
+    );
+};
+
+
+// --- 5. MLOps & Scalable Deployment Visual ---
+const MLOpsVisual = () => {
+    // A clean, professional bar chart showing growth and stability.
+    return (
+        <div className="w-4/5 h-full flex items-end justify-center gap-2">
+            {[0.4, 0.6, 0.5, 0.8, 0.7].map((height, i) => (
+                <motion.div
+                    key={i}
+                    className="w-4 bg-purple-400/80 rounded-t-sm"
+                    initial={{ height: "0%" }}
+                    animate={{ height: `${height * 100}%` }}
+                    transition={{ duration: 0.5, delay: i * 0.1 + 0.2, repeat: Infinity, repeatType: "mirror", ease: "circOut" }}
+                />
+            ))}
+        </div>
+    );
+};
+
+// --- 6. Data Strategy & Engineering Visual ---
+const DataVisual = () => {
+    // Abstract flowing particles representing a data pipeline.
+    return (
+        <div className="w-full h-full relative">
+            {[...Array(5)].map((_, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-purple-300 rounded-full"
+                    initial={{ x: 0, y: Math.random() * 80 - 40, opacity: 0 }}
+                    animate={{ x: 100, opacity: [0, 1, 0] }}
+                    transition={{
+                        duration: 2,
+                        delay: i * 0.4,
+                        repeat: Infinity,
+                        ease: "linear"
+                    }}
+                />
+            ))}
+        </div>
+    );
+};
+
+// --- Main ServicesSection Component ---
+const ServicesSection = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+  
+  const services = [
+    { title: "AI Strategy & MVP Design", description: "We partner with you to identify high-ROI AI opportunities, define project scope, and design a robust MVP architecture.", icon: <Map />, visual: <StrategyVisual /> },
+    { title: "Custom AI Development", description: "We build end-to-end, enterprise-grade AI software, from complex data pipelines to intuitive user interfaces.", icon: <CodeXml />, visual: <DevelopmentVisual /> },
+    { title: "GenAI & LLM Solutions", description: "Leverage the power of Large Language Models. We build custom chatbots, RAG systems, and content generation tools.", icon: <BrainCircuit />, visual: <GenAIVisual /> },
+    { title: "AI Agents & Automation", description: "Deploy a workforce of autonomous AI agents to handle your most complex, repetitive operational tasks 24/7.", icon: <Bot />, visual: <AutomationVisual /> },
+    { title: "MLOps & Scalable Deployment", description: "We manage the entire machine learning lifecycle, ensuring your models are robust, scalable, and monitored in production.", icon: <Server />, visual: <MLOpsVisual /> },
+    { title: "Data Strategy & Engineering", description: "AI is only as good as its data. We build the foundational data warehouses and pipelines you need for success.", icon: <DatabaseZap />, visual: <DataVisual /> }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
-      {/* Header Section */}
-      <div className="pt-24 pb-16 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          {/* Badge */}
-          <div
-            className="inline-flex items-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-8"
-          >
-            <span className="text-gray-300 text-sm font-medium">Our Services</span>
-            <div className="ml-2 w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-          </div>
-
-          {/* Main Heading */}
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-light text-white mb-6 leading-tight"
-          >
-            Transforming Business <span className="text-gray-400">With</span>
-            <br />
-            <span className="text-gray-300">Advanced</span> <span className="text-orange-400 font-normal">AI Solutions</span>
-          </h1>
-          
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
-            We deliver cutting-edge artificial intelligence services to help your business 
-            innovate, automate, and grow in the digital age.
-          </p>
+    <section id="services" className="bg-[#101010] text-white py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-16">
+            <span className="bg-white/10 text-white text-sm font-medium px-3 py-1.5 rounded-full">Our Services</span>
+            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">End-to-End AI Solutions</h2>
+            <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-400">From foundational data strategy to scalable enterprise-grade AI applications, we cover every stage of your journey.</p>
         </div>
+        
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {services.map(service => (
+            <ServiceCard key={service.title} {...service}>
+              {service.visual}
+            </ServiceCard>
+          ))}
+        </motion.div>
       </div>
-
-      {/* Main Services Grid */}
-      <div className="px-6 pb-20">
-        <div className="max-w-7xl mx-auto">
-          <div className=" grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {aiServices.map((service, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 group"
-              >
-                <div className="mb-6">
-                  <div className="flex items-center mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center mr-4`}>
-                      <service.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-semibold text-white">{service.title}</h3>
-                  </div>
-                  <p className="text-gray-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Service Details */}
-                <div className="bg-black/40 rounded-xl p-6 border border-gray-700/30">
-                  <h4 className="text-lg font-medium text-white mb-4">Key Benefits</h4>
-                  
-                  <ul className="space-y-3">
-                    {[1, 2, 3].map((item) => (
-                      <li key={item} className="flex items-start">
-                        <div className="w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center mt-0.5 mr-3">
-                          <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                        </div>
-                        <span className="text-gray-300">
-                          {index === 0 && item === 1 && "Strategic AI roadmap development"}
-                          {index === 0 && item === 2 && "Competitive advantage through AI adoption"}
-                          {index === 0 && item === 3 && "ROI-focused implementation plans"}
-                          
-                          {index === 1 && item === 1 && "Tailored AI solutions for specific needs"}
-                          {index === 1 && item === 2 && "Scalable architecture for future growth"}
-                          {index === 1 && item === 3 && "Seamless integration with existing systems"}
-                          
-                          {index === 2 && item === 1 && "Predictive analytics for business insights"}
-                          {index === 2 && item === 2 && "Automated decision-making processes"}
-                          {index === 2 && item === 3 && "Continuous learning and improvement"}
-                          
-                          {index === 3 && item === 1 && "Advanced text and speech processing"}
-                          {index === 3 && item === 2 && "Multilingual support and understanding"}
-                          {index === 3 && item === 3 && "Sentiment analysis and intent recognition"}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  <div className="mt-6 pt-6 border-t border-gray-700/50">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-400">Implementation Time</span>
-                      <span className="text-sm font-medium text-white">
-                        {index === 0 ? "2-4 weeks" : index === 1 ? "4-12 weeks" : index === 2 ? "6-10 weeks" : "3-8 weeks"}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Additional Features Grid */}
-      <div className="px-6 pb-20">
-        <div className="max-w-7xl mx-auto">
-          <div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {serviceFeatures.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 group hover:transform hover:scale-105"
-              >
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <feature.icon className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-400 text-sm">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
-export default Services;
+export default ServicesSection;
