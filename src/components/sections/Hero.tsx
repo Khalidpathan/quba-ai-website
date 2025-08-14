@@ -4,13 +4,6 @@ const HeroPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
       {/* Navigation */}
-      <nav className="w-full px-6 py-6">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-lg font-medium text-gray-600 tracking-wider uppercase">
-            Quba AI
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <main className="flex flex-col items-center justify-center px-6 pt-20 pb-32">

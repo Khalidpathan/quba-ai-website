@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Github, Mail, Phone, MapPin, ArrowUp } from 'lucide-react';
 
 const navigation = {
   main: [
@@ -34,6 +34,18 @@ const navigation = {
       icon: Mail,
     },
   ],
+  services: [
+    { name: 'AI Consulting', href: '#consulting' },
+    { name: 'Machine Learning', href: '#ml' },
+    { name: 'Data Analytics', href: '#analytics' },
+    { name: 'Automation', href: '#automation' },
+  ],
+  company: [
+    { name: 'About Us', href: '#about' },
+    { name: 'Careers', href: '#careers' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Privacy Policy', href: '#privacy' },
+  ],
 };
 
 const contactInfo = [
@@ -51,111 +63,155 @@ const contactInfo = [
     href: 'tel:+1234567890',
     gradient: 'from-purple-500 to-pink-500',
   },
+  {
+    icon: MapPin,
+    title: 'Visit Us',
+    content: 'San Francisco, CA',
+    href: '#location',
+    gradient: 'from-green-500 to-emerald-500',
+  },
 ];
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-black to-gray-800 border-t border-gray-800/50">
-      <div className="container-max py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Company Info */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4">Quba AI</h3>
-            <p className="text-gray-400 mb-4">
-              Empowering businesses with cutting-edge AI solutions to transform operations and drive innovation.
-            </p>
-            <div className="flex space-x-4">
-              {navigation.social.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-primary-400 transition-colors"
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                    aria-label={item.name}
-                  >
-                    <span className="sr-only">{item.name}</span>
-                    <Icon className="h-5 w-5" />
-                  </motion.a>
-                );
-              })}
-            </div>
-          </div>
+    <footer className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 border-t border-gray-800/50 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[conic-gradient(from_0deg_at_50%_50%,_var(--tw-gradient-stops))] from-transparent via-purple-500/20 to-transparent"></div>
+      </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {navigation.main.map((item) => (
-                <li key={item.name}>
-                  <Link 
-                    href={item.href} 
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <div className="relative z-10">
+        {/* Main Footer Content */}
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-semibold text-white mb-4">Contact Us</h3>
-            <div className="space-y-4">
-              {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start space-x-3">
-                  <div className={`w-8 h-8 bg-gradient-to-br ${item.gradient} rounded-lg flex items-center justify-center flex-shrink-0`}>
-                    <item.icon className="w-4 h-4 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-medium text-white">{item.title}</h4>
-                    <a href={item.href} className="text-gray-400 hover:text-blue-400 transition-colors">
-                      {item.content}
-                    </a>
-                  </div>
-                </div>
-              ))}
-              <div className="flex items-start space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="text-sm font-medium text-white">Our Office</h4>
-                  <p className="text-gray-400">
-                    123 AI Street<br />
-                    Tech Valley, CA 94025<br />
-                    United States
-                  </p>
+          {/* Newsletter Section */}
+          <motion.div
+            className="border-t border-gray-800/50 pt-8 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-6 sm:space-y-0">
+              {/* Left Side - Social Icons */}
+              <div className="flex space-x-4">
+                {navigation.social.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-gray-800/50 text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 transition-all duration-300 backdrop-blur-sm border border-gray-700/50"
+                      whileHover={{ y: -3, scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      aria-label={item.name}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </motion.a>
+                  );
+                })}
+              </div>
+
+              {/* Center - Newsletter */}
+              <div className="text-center max-w-md">
+                <h4 className="text-lg font-semibold text-white mb-2">Stay Updated</h4>
+                <p className="text-gray-400 text-sm mb-4">Subscribe to our newsletter for the latest AI insights</p>
+                <div className="flex">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 px-4 py-2 bg-gray-800/50 border border-gray-700/50 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 backdrop-blur-sm"
+                  />
+                  <motion.button
+                    className="px-6 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-r-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    Subscribe
+                  </motion.button>
                 </div>
               </div>
+
+              {/* Right Side - Arrow Up Button */}
+              <motion.button
+                onClick={scrollToTop}
+                className="p-2 rounded-full bg-gray-800/50 text-gray-400 hover:text-white hover:bg-blue-500 transition-all duration-300 backdrop-blur-sm border border-gray-700/50"
+                whileHover={{ y: -3, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Scroll to top"
+              >
+                <ArrowUp className="h-4 w-4" />
+              </motion.button>
             </div>
-          </div>
+
+            {/* Copyright */}
+            <div className="text-center mt-8">
+              <motion.p
+                className="text-sm text-gray-400"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                &copy; {currentYear} Quba AI. All rights reserved. Crafted with ❤️ for the future.
+              </motion.p>
+            </div>
+          </motion.div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-base text-gray-400">
-              &copy; {currentYear} Quba AI. All rights reserved.
-            </p>
-            <div className="mt-4 md:mt-0 text-sm text-gray-500">
-              Built with ❤️ by{' '}
-              <a 
-                href="https://github.com/Khalidpathan" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-blue-400 transition-colors"
-              >
-                Khalid Pathan
-              </a>
-            </div>
-          </div>
+        {/* Full-Width QubaAI Branding Section */}
+        <div className="relative border-t border-gray-800/30 w-full">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent"></div>
+          <motion.div
+            className="relative z-10 py-16 w-full text-center overflow-hidden"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+          >
+            <motion.h1
+              className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter select-none w-full"
+              style={{
+                background: "linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.1) 50%, rgba(59,130,246,0.3) 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+                textShadow: "0 0 40px rgba(59,130,246,0.3)",
+              }}
+              whileHover={{
+                scale: 1.02,
+                textShadow: "0 0 60px rgba(59,130,246,0.5)",
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              QubaAI
+            </motion.h1>
+            <motion.div
+              className="mt-4 h-1 w-32 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: "8rem" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              viewport={{ once: true }}
+            />
+            <motion.p
+              className="mt-6 text-gray-400 text-lg max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Pioneering the future of artificial intelligence
+            </motion.p>
+          </motion.div>
         </div>
       </div>
     </footer>

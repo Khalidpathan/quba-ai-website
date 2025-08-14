@@ -45,7 +45,7 @@ const Header: React.FC = () => {
   }, [])
 
   const navigationItems = [
-    { name: 'Home', href: '/', color: 'text-blue-300' },
+    { name: 'QubaAI', href: '/', color: 'text-blue-300' },
     { name: 'Services', href: '/pricing', color: 'text-white' },
     { name: 'Work', href: '/features', color: 'text-white' },
     { name: 'Testimonials', href: '/features', color: 'text-white' },
@@ -73,21 +73,6 @@ const Header: React.FC = () => {
             transition={{ duration: 0.2 }}
           >
             <div className="flex justify-between items-center">
-              {/* Enhanced Logo */}
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex items-center cursor-pointer"
-              >
-                <motion.div
-                  className="text-blue-300 hover:text-blue-200 transition-all duration-300 relative"
-                  whileHover={{ rotate: 90 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="transform">
-                    <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" fill="currentColor"/>
-                  </svg>
-                </motion.div>
-              </motion.div>
 
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-6">
