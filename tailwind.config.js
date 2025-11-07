@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'kern-standard': ['var(--font-kern-standard)', 'Kern-StandardRegular'],
+        'sans': ['var(--font-kern-standard)', 'Kern-StandardRegular'],
+      },
       colors: {
         // Your existing "primary" blue color scale
         primary: {

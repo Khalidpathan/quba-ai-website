@@ -13,12 +13,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         className={cn(
           'inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors',
-          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring',
+          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60',
           'disabled:opacity-50 disabled:pointer-events-none',
           {
-            'bg-primary text-primary-foreground hover:bg-primary/90': variant === 'default',
-            'border border-input bg-background hover:bg-accent hover:text-accent-foreground': variant === 'outline',
-            'hover:bg-accent hover:text-accent-foreground': variant === 'ghost',
+            // Primary gradient button consistent with Contact section
+            'bg-gradient-to-r from-blue-500 to-purple-500 text-white hover:shadow-lg hover:shadow-blue-500/25': variant === 'default',
+            // Outline button with blue accents
+            'border border-blue-500/40 bg-transparent text-white hover:bg-blue-500/10': variant === 'outline',
+            // Ghost button subtle blue hover
+            'text-white hover:bg-blue-500/10': variant === 'ghost',
             'h-10 px-4 py-2': size === 'default',
             'h-9 rounded-md px-3': size === 'sm',
             'h-11 rounded-md px-8': size === 'lg',

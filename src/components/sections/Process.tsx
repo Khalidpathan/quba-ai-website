@@ -93,11 +93,11 @@ const ProcessSection = () => {
   } as const;
 
   return (
-    <section className="bg-[#101010] text-white py-20 sm:py-28">
+    <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center">
-          <span className="bg-white/10 text-white text-sm font-medium px-3 py-1.5 rounded-full">
+          <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
             Your Journey With Us
           </span>
           <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -112,15 +112,15 @@ const ProcessSection = () => {
         <div className="mt-16 space-y-12">
           {/* Phase 1: Pilot/PoC */}
           <motion.div
-             className="bg-white/5 p-6 md:p-8 rounded-2xl border border-dashed border-white/20"
+             className="bg-black/30 p-6 md:p-8 rounded-2xl border border-dashed border-gray-700/50 hover:border-blue-500/30"
              variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <div className="flex items-center gap-4">
-                  <engagementPath.pilot.icon className="w-8 h-8 text-purple-300 flex-shrink-0" />
+                  <engagementPath.pilot.icon className="w-8 h-8 text-blue-300 flex-shrink-0" />
                   <div>
-                    <p className="text-sm font-semibold text-purple-300">{engagementPath.pilot.phase}</p>
+                    <p className="text-sm font-semibold text-blue-300">{engagementPath.pilot.phase}</p>
                     <h3 className="mt-1 text-2xl font-bold">{engagementPath.pilot.title}</h3>
                   </div>
                 </div>
@@ -133,7 +133,7 @@ const ProcessSection = () => {
           </motion.div>
 
           {/* Arrow Separator */}
-          <div className="text-center text-purple-400">
+          <div className="text-center text-blue-400">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto w-8 h-8"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
           </div>
 
@@ -141,11 +141,11 @@ const ProcessSection = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* MVP */}
             <motion.div
-              className="bg-white/5 p-6 rounded-2xl border border-white/10 flex flex-col"
+              className="bg-black/30 p-6 rounded-2xl border border-gray-700/50 hover:border-blue-500/30 flex flex-col"
               variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
             >
               <div className="flex-grow">
-                <p className="text-sm font-semibold text-purple-300">{engagementPath.mvp.phase}</p>
+                <p className="text-sm font-semibold text-blue-300">{engagementPath.mvp.phase}</p>
                 <h3 className="mt-2 text-2xl font-bold">{engagementPath.mvp.title}</h3>
                 <p className="mt-3 text-base text-gray-400">{engagementPath.mvp.description}</p>
               </div>
@@ -156,11 +156,11 @@ const ProcessSection = () => {
             
             {/* Sprints */}
             <motion.div
-              className="bg-white/5 p-6 rounded-2xl border border-white/10 flex flex-col"
+              className="bg-black/30 p-6 rounded-2xl border border-gray-700/50 hover:border-blue-500/30 flex flex-col"
               variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
             >
               <div className="flex-grow">
-                <p className="text-sm font-semibold text-purple-300">{engagementPath.sprints.phase}</p>
+                <p className="text-sm font-semibold text-blue-300">{engagementPath.sprints.phase}</p>
                 <h3 className="mt-2 text-2xl font-bold">{engagementPath.sprints.title}</h3>
                 <p className="mt-3 text-base text-gray-400">{engagementPath.sprints.description}</p>
               </div>

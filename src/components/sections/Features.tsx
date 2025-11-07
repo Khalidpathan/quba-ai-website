@@ -67,17 +67,17 @@ const FeaturesSection = () => {
   } as const;
 
   return (
-    <section className="bg-[#101010] text-white py-20 sm:py-28">
+    <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <span className="bg-white/10 text-white text-sm font-medium px-3 py-1.5 rounded-full">
+          <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
             Our Edge
           </span>
           <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
             The New Standard for AI Development
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-400">
-            We've replaced the traditional agency model with a faster, smarter, and results-driven approach.
+            We've replaced the traditional delivery model with a faster, smarter, and results-driven approach.
           </p>
         </div>
         <motion.div
@@ -93,8 +93,8 @@ const FeaturesSection = () => {
               className="flex flex-col items-center text-center p-4"
               variants={itemVariants}
             >
-              <div className="bg-white/10 p-3 rounded-full mb-4">
-                <feature.icon className="w-7 h-7 text-[#a78bfa]" />
+              <div className="bg-blue-500/10 p-3 rounded-full mb-4 border border-blue-500/20">
+                <feature.icon className="w-7 h-7 text-blue-300" />
               </div>
               <h3 className="text-xl font-semibold text-gray-100">{feature.title}</h3>
               <p className="mt-2 text-gray-400">{feature.description}</p>

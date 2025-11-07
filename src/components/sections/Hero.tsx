@@ -43,7 +43,7 @@ const HeroSection = () => {
   } as const;
 
   return (
-    <section className="relative w-full bg-[#101010] text-white py-28 md:py-32 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-28 md:py-32 overflow-hidden">
       {/* Background Grid */}
       <div
         className="absolute inset-0 z-0 opacity-40"
@@ -53,7 +53,7 @@ const HeroSection = () => {
         }}
       ></div>
       {/* Background Gradient */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-[#101010]"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-black/60"></div>
 
       <div className="container relative z-20 mx-auto px-4">
         <motion.div
@@ -97,7 +97,7 @@ const HeroSection = () => {
           >
             <motion.a
               href="#contact" // Links to your contact section
-              className="inline-flex items-center justify-center bg-white text-black font-semibold px-6 py-3 rounded-lg text-lg"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold px-6 py-3 rounded-lg text-lg hover:shadow-lg hover:shadow-blue-500/25"
               whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(255, 255, 255, 0.1)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -106,7 +106,7 @@ const HeroSection = () => {
             </motion.a>
             <motion.a
               href="#use-cases" // Links to your use cases/blog section
-              className="inline-flex items-center justify-center bg-transparent text-white font-semibold px-6 py-3 rounded-lg border-2 border-white/20 hover:bg-white/10 transition-colors duration-300"
+              className="inline-flex items-center justify-center bg-transparent text-white font-semibold px-6 py-3 rounded-lg border-2 border-blue-500/40 hover:bg-blue-500/10 transition-colors duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

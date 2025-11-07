@@ -22,19 +22,19 @@ const cardVariants = {
 const ServiceCard: React.FC<CardProps> = ({ title, description, icon, children }) => (
   <motion.div
     variants={cardVariants}
-    className="relative flex flex-col justify-between p-6 bg-black/20 rounded-2xl border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden hover:border-purple-400/50 transition-colors duration-300"
+    className="relative flex flex-col justify-between p-6 bg-black/30 rounded-2xl border border-gray-700/50 shadow-lg backdrop-blur-sm overflow-hidden hover:border-blue-500/30 transition-colors duration-300"
     style={{
       backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0)',
       backgroundSize: '1.5rem 1.5rem'
     }}
   >
     <div className="flex flex-col items-start gap-3">
-      <div className="text-2xl text-purple-300">{icon}</div>
+      <div className="text-2xl text-blue-300">{icon}</div>
       <h3 className="text-xl font-semibold text-white">{title}</h3>
       <p className="text-sm text-gray-400">{description}</p>
     </div>
     <div className="my-5 h-24 flex items-center justify-center overflow-hidden">{children}</div>
-    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-500/10 to-transparent pointer-events-none"></div>
+    <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-blue-500/10 to-transparent pointer-events-none"></div>
   </motion.div>
 );
 
@@ -190,10 +190,10 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="bg-[#101010] text-white py-20 md:py-28">
+    <section id="services" className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-            <span className="bg-white/10 text-white text-sm font-medium px-3 py-1.5 rounded-full">Our Services</span>
+            <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">Our Services</span>
             <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">End-to-End AI Solutions</h2>
             <p className="mt-4 max-w-3xl mx-auto text-lg text-gray-400">From foundational data strategy to scalable enterprise-grade AI applications, we cover every stage of your journey.</p>
         </div>
