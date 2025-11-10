@@ -16,13 +16,13 @@ const kernStandard = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'QubaAI | Transforming Business with Artificial Intelligence',
+  title: 'Quba | Transforming Business with Artificial Intelligence',
   description: 'Leading AI agency specializing in machine learning, automation, and intelligent solutions for modern businesses.',
   keywords: 'AI, artificial intelligence, machine learning, automation, business solutions',
   icons: {
-    icon: '/Quba Logo.png',
-    shortcut: '/Quba Logo.png',
-    apple: '/Quba Logo.png',
+    icon: '/quba.png',
+    shortcut: '/quba.png',
+    apple: '/quba.png',
   },
 }
 

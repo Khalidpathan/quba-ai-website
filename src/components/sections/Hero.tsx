@@ -79,9 +79,9 @@ const HeroSection = () => {
             className="text-5xl md:text-7xl font-bold tracking-tighter text-black"
             variants={itemVariants}
           >
-            Stop Buying Software.
+           Software That Thinks.
             <br/>
-            Start Buying Outcomes.
+            Products That Evolve.
           </motion.h1>
 
           {/* Sub-headline */}
@@ -89,7 +89,7 @@ const HeroSection = () => {
             className="mt-6 max-w-2xl text-lg md:text-xl text-black"
             variants={itemVariants}
           >
-            We are an AI-native organization that delivers intelligent automation and GenAI solutions, not as a project, but as a continuous service.
+            An AI-native engineering partner that turns ideas into continuously evolving intelligent products powered by automation and GenAI.
           </motion.p>
 
           {/* Buttons */}
@@ -99,7 +99,7 @@ const HeroSection = () => {
           >
             <motion.a
               href="#contact" // Links to your contact section
-              className="inline-flex items-center justify-center bg-black text-white font-semibold px-4 py-2 rounded-lg text-lg hover:shadow-sm hover:shadow-black"
+              className="inline-flex items-center justify-center bg-black text-white font-semibold px-4 py-2 mb-12 mt-4 rounded-lg text-lg hover:shadow-sm hover:shadow-black"
               whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px " }}
               whileTap={{ scale: 0.95 }}
             >
@@ -108,7 +108,7 @@ const HeroSection = () => {
             </motion.a>
             <motion.a
               href="#use-cases" // Links to your use cases/blog section
-              className="inline-flex items-center justify-center bg-blue-900/70 text-white font-semibold px-3 py-2 rounded-lg hover:bg-blue-800/70 transition-colors duration-200"
+              className="inline-flex items-center justify-center bg-blue-900/70 text-white font-semibold mb-12 mt-4 px-3 py-2 rounded-lg hover:bg-blue-800/70 transition-colors duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

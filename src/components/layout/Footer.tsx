@@ -54,7 +54,7 @@ export default function Footer() {
             })}
           </div>
 
-          {/* Subscribe Email */}
+          {/* Subscribe Email
           <div className="flex items-center space-x-2 w-full md:w-auto">
             <input
               type="email"
@@ -62,13 +62,13 @@ export default function Footer() {
               className="flex-1 md:flex-none px-4 py-2 bg-gray-800/50 border border-gray-700/50 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 backdrop-blur-sm"
             />
             <motion.button
-              className="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-r-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200"
+              className="px-4 py-2 bg-white text-black cursor-pointer rounded-r-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-200"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Subscribe
             </motion.button>
-          </div>
+          </div> */}
 
           {/* Scroll to Top & Copyright */}
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 text-center">
@@ -82,13 +82,13 @@ export default function Footer() {
               <ArrowUp className="h-5 w-5" />
             </motion.button>
             <p className="text-gray-400 text-sm">
-              &copy; {currentYear} Quba AI. All rights reserved.
+              &copy; {currentYear} Quba Software. All rights reserved.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Full-Width QubaAI Branding Section */}
+      {/* Full-Width Quba Branding Section */}
       <div className="relative border-t border-gray-800/30 w-full h-96 flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent"></div>
         <motion.div
@@ -105,18 +105,17 @@ export default function Footer() {
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
-              textShadow: "0 0 40px rgba(59,130,246,0.3)",
             }}
             whileHover={{
               scale: 1.02,
-              textShadow: "0 0 60px rgba(59,130,246,0.5)",
+              textShadow: "0 0 60px rgba(129, 176, 238, 0.5)",
             }}
             transition={{ duration: 0.3 }}
           >
             Quba
           </motion.h1>
           <motion.div
-            className="h-1 w-48 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-2"
+            className="h-1 w-48 mx-auto bg-blue-800/60 rounded-full mb-2"
             initial={{ width: 0 }}
             whileInView={{ width: "12rem" }}
             transition={{ duration: 1, delay: 0.5 }}

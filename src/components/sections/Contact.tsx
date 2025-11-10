@@ -47,7 +47,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 px-6 py-24"
+      className="min-h-screen bg-black px-6 py-24"
     >
       <div className="text-center max-w-4xl mx-auto mb-12">
         <div className="inline-flex items-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-6">
@@ -71,7 +71,7 @@ export default function Contact() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="md:col-span-2 bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 hover:border-blue-500/30 transition"
+          className="md:col-span-2 bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 "
         >
           <h3 className="text-2xl font-semibold text-white mb-6">Send us a message</h3>
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -164,7 +164,7 @@ export default function Contact() {
           className="flex flex-col justify-center space-y-6"
         >
           {/* Head Office */}
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
             <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
               <MapPin className="w-6 h-6 text-gray-200" />
             </div>
@@ -174,7 +174,7 @@ export default function Contact() {
           </div>
 
           {/* Phone */}
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
             <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
               <Phone className="w-6 h-6 text-gray-200" />
             </div>
@@ -183,7 +183,7 @@ export default function Contact() {
           </div>
 
           {/* Email */}
-          <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
             <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
               <Mail className="w-6 h-6 text-gray-200" />
             </div>

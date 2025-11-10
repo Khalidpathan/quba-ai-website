@@ -11,7 +11,7 @@ import Testimonials from '@/components/sections/Testimonals'
 import FAQ from '@/components/sections/FAQ'
 export default function Home() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-x-hidden">
       <FloatingElements />
       <Header />
       <Hero />

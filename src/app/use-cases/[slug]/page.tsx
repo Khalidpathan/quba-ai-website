@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Building2, Code } from 'lucide-react';
 import { getUseCaseBySlug, useCases } from '@/data/useCases';
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export async function generateStaticParams() {
@@ -15,7 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const useCase = getUseCaseBySlug(slug);
-  
+
   if (!useCase) {
     return {
       title: 'Use Case Not Found',
@@ -23,8 +22,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${useCase.title} | QubaAI`,
-    description: `Learn how QubaAI helped solve ${useCase.title} with AI-native solutions.`,
+    title: `${useCase.title} | Quba`,
+    description: `Learn how Quba helped solve ${useCase.title} with AI-native solutions.`,
   };
 }
 
@@ -38,19 +37,10 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
-      <Header />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Back Button */}
-          <Link
-            href="/#blog"
-            className="inline-flex items-center gap-2 text-gray-400 hover:text-blue-400 transition-colors duration-300 mb-8 group"
-          >
-            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span>Back to Use Cases</span>
-          </Link>
 
           {/* Header Info */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
@@ -188,4 +178,3 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
     </main>
   );
 }
-

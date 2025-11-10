@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
-// New FAQs tailored for QubaAI's advanced service model
+// New FAQs tailored for Quba's advanced service model
 const faqs = [
   {
     question: "What exactly is 'Outcome-as-a-Service'?",
@@ -40,7 +40,7 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20 px-6 sm:py-28"
+      className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 py-20 px-6 sm:py-28"
     >
       <div className="text-center">
         <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
@@ -85,7 +85,7 @@ export default function FAQSection() {
                   transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-5 text-gray-400 text-base leading-relaxed">
+                  <div className="px-6 pb-5 text-gray-400 text-medium leading-relaxed">
                     {faq.answer}
                   </div>
                 </motion.div>

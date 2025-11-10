@@ -76,7 +76,7 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-3 group">
-                <Image src="/Quba Logo.png" alt="QubaAI" width={42} height={42} className="rounded-full" />
+                <Image src="/quba.png" alt="Quba" width={42} height={42} className="rounded-full" />
                 <span className="text-white font-semibold tracking-tight text-2xl hidden sm:inline group-hover:text-blue-200 transition-colors">Quba</span>
               </Link>
               {/* Desktop Navigation */}

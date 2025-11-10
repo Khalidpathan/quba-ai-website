@@ -81,7 +81,7 @@ const ProcessSection = () => {
     sprints: {
       phase: 'Phase 3',
       title: 'Scale & Iterate (Sprints)',
-      description: 'This is our Outcome-as-a-Service model in action. Through continuous, iterative sprints, we enhance features, optimize performance, and scale your solution based on real data.',
+      description: 'Through continuous, iterative sprints, we enhance features, optimize performance, and scale your solution based on real data.',
       visual: <SprintVisual />,
       icon: RefreshCw,
     },

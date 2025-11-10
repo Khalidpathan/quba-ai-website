@@ -123,3 +123,4 @@ If you prefer a different service, here are other free options:
 - Resend Documentation: [https://resend.com/docs](https://resend.com/docs)
 - Resend Support: [https://resend.com/support](https://resend.com/support)
 
+

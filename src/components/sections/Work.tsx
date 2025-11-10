@@ -7,10 +7,10 @@ import { useCases } from '@/data/useCases';
 const WorkSection = () => {
   return (
     // Updated section styling to match the rest of the site
-    <section id="blog" className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-20 md:py-28">
+    <section id="blog" className="bg-gradient-to-t from-gray-900 via-blue-900/20 to-gray-900 text-white py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center md:text-left mb-12">
-            <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
+            <span className="bg-black text-white text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
                 Insights
             </span>
             <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
@@ -22,10 +22,12 @@ const WorkSection = () => {
             <Link
               key={useCase.slug}
               href={`/use-cases/${useCase.slug}`}
+              target="_blank"                  // Open link in new tab
+              rel="noopener noreferrer"        // Security best practice
               className="
                 group flex items-center p-4 gap-4 md:gap-6 rounded-2xl 
-                bg-black/30 border border-gray-700/50 
-                hover:border-blue-500/30 hover:bg-black/40
+                bg-black/20 border border-gray-700/50 
+                hover:border-blue-500/30 hover:bg-blue/40
                 transition-all duration-300
                 block
               "
@@ -40,8 +42,8 @@ const WorkSection = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <p className="text-sm text-gray-400 mb-1">{useCase.date}</p>
-                <h3 className="text-base md:text-lg font-semibold text-gray-100 group-hover:text-blue-300 transition-colors duration-300">
+                <p className="text-sm text-black mb-1">{useCase.date}</p>
+                <h3 className="text-base md:text-lg font-semibold text-black group-hover:text-white transition-colors duration-300">
                   {useCase.title}
                 </h3>
               </div>
