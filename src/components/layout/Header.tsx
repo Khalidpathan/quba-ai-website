@@ -63,7 +63,7 @@ const Header: React.FC = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-6 left-6 right-6 z-50"
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             className={`backdrop-blur-xl rounded-2xl px-6 py-3 border transition-all duration-500 ${
               isScrolled 
@@ -76,8 +76,8 @@ const Header: React.FC = () => {
             <div className="flex justify-between items-center">
               {/* Logo */}
               <Link href="/" className="flex items-center gap-3 group">
-                <Image src="/Quba Logo.png" alt="QubaAI" width={36} height={36} className="rounded-full" />
-                <span className="text-white font-semibold tracking-tight text-lg hidden sm:inline group-hover:text-blue-200 transition-colors">QubaAI</span>
+                <Image src="/Quba Logo.png" alt="QubaAI" width={42} height={42} className="rounded-full" />
+                <span className="text-white font-semibold tracking-tight text-2xl hidden sm:inline group-hover:text-blue-200 transition-colors">Quba</span>
               </Link>
               {/* Desktop Navigation */}
               <nav className="hidden md:flex items-center space-x-8">

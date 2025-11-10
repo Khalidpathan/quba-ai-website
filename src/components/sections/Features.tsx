@@ -67,7 +67,7 @@ const FeaturesSection = () => {
   } as const;
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white py-20 sm:py-28">
+    <section className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 text-white py-20 sm:py-28">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
