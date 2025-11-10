@@ -43,17 +43,17 @@ const HeroSection = () => {
   } as const;
 
   return (
-    <section className="relative w-full bg-[#101010] text-white py-28 md:py-32 overflow-hidden">
+    <section className="relative w-full bg-gradient-to-br from-gray-600 via-white to-gray-800 text-white py-28 md:py-32 overflow-hidden">
       {/* Background Grid */}
       <div
-        className="absolute inset-0 z-0 opacity-40"
+        className="absolute inset-0 z-0 opacity-10"
         style={{
           backgroundImage: 'url("data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 32 32\' width=\'32\' height=\'32\' fill=\'none\' stroke=\'%23333\'%3e%3cpath d=\'M0 .5H31.5V32\'/%3e%3c/svg%3e")',
           backgroundSize: '3rem 3rem',
         }}
       ></div>
       {/* Background Gradient */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-[#101010]"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-black/40"></div>
 
       <div className="container relative z-20 mx-auto px-4">
         <motion.div
@@ -67,27 +67,29 @@ const HeroSection = () => {
             className="mb-6"
             variants={itemVariants}
           >
-             <span className="bg-white/10 text-white text-sm font-medium px-4 py-2 rounded-full">
-                AI-Native | Outcome-as-a-Service
+          
+          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"></h2>
+             <span className="bg-blue-900/70 text-white text-sm font-medium px-4 py-2 rounded-full">
+                AI-Native | Outcome Based Pricing
             </span>
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
-            className="text-5xl md:text-7xl font-bold tracking-tighter text-white"
+            className="text-5xl md:text-7xl font-bold tracking-tighter text-black"
             variants={itemVariants}
           >
-            Stop Buying Software.
+           Software That Thinks.
             <br/>
-            Start Buying Outcomes.
+            Products That Evolve.
           </motion.h1>
 
           {/* Sub-headline */}
           <motion.p
-            className="mt-6 max-w-2xl text-lg md:text-xl text-gray-400"
+            className="mt-6 max-w-2xl text-lg md:text-xl text-black"
             variants={itemVariants}
           >
-            We are an AI-native studio that delivers intelligent automation and GenAI solutions, not as a project, but as a continuous service.
+            An AI-native engineering partner that turns ideas into continuously evolving intelligent products powered by automation and GenAI.
           </motion.p>
 
           {/* Buttons */}
@@ -97,8 +99,8 @@ const HeroSection = () => {
           >
             <motion.a
               href="#contact" // Links to your contact section
-              className="inline-flex items-center justify-center bg-white text-black font-semibold px-6 py-3 rounded-lg text-lg"
-              whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(255, 255, 255, 0.1)" }}
+              className="inline-flex items-center justify-center bg-black text-white font-semibold px-4 py-2 mb-12 mt-4 rounded-lg text-lg hover:shadow-sm hover:shadow-black"
+              whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px " }}
               whileTap={{ scale: 0.95 }}
             >
               Scope Your AI Initiative
@@ -106,7 +108,7 @@ const HeroSection = () => {
             </motion.a>
             <motion.a
               href="#use-cases" // Links to your use cases/blog section
-              className="inline-flex items-center justify-center bg-transparent text-white font-semibold px-6 py-3 rounded-lg border-2 border-white/20 hover:bg-white/10 transition-colors duration-300"
+              className="inline-flex items-center justify-center bg-blue-900/70 text-white font-semibold mb-12 mt-4 px-3 py-2 rounded-lg hover:bg-blue-800/70 transition-colors duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -3,8 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-inter: 'Inter', sans-serif;
-  --font-space-grotesk: 'Space Grotesk', sans-serif;
   
   /* Custom color palette for your AI business */
   --color-primary-50: #eff6ff;
@@ -67,16 +65,22 @@
     font-variant-numeric: oldstyle-nums;
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: var(--font-kern-standard), 'Kern-StandardRegular';
+    font-weight: 400;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-space-grotesk), 'Space Grotesk', system-ui, -apple-system, sans-serif;
-    font-weight: 600;
+    font-family: var(--font-kern-standard), 'Kern-StandardRegular';
+    font-weight: 400;
     line-height: 1.2;
+  }
+  
+  /* Ensure all text elements use Kern-Standard font */
+  p, span, a, li, td, th, label, input, textarea, select, button {
+    font-family: var(--font-kern-standard), 'Kern-StandardRegular';
   }
 }
 

@@ -1,8 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Calendar, MapPin } from 'lucide-react';
-import { InlineWidget } from 'react-calendly';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
@@ -10,12 +10,45 @@ const itemVariants = {
 } as const;
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
   return (
     <section
       id="contact"
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 px-6 py-24"
+      className="min-h-screen bg-black px-6 py-24"
     >
-      {/* Section Header */}
       <div className="text-center max-w-4xl mx-auto mb-12">
         <div className="inline-flex items-center bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-6">
           <span className="text-gray-300 text-sm font-medium">Get In Touch</span>
@@ -31,161 +64,132 @@ export default function Contact() {
         </p>
       </div>
 
-      {/* Form & Calendly */}
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 mb-12">
-        {/* Contact Form */}
+      <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 mb-12">
+        {/* Contact Form (2/3 width) */}
         <motion.div
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 hover:border-blue-500/30 transition"
+          className="md:col-span-2 bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/50 "
         >
           <h3 className="text-2xl font-semibold text-white mb-6">Send us a message</h3>
-          <form className="space-y-6">
-            {[
-              { id: 'name', label: 'Your Name', type: 'text', placeholder: 'John Doe' },
-              { id: 'email', label: 'Email Address', type: 'email', placeholder: 'you@example.com' },
-              { id: 'subject', label: 'Subject', type: 'text', placeholder: 'How can we help?' },
-            ].map((field, idx) => (
-              <div
-                key={field.id}
-                className={idx < 2 ? 'grid grid-cols-1 md:grid-cols-2 gap-6' : ''}
-              >
-                <div>
-                  <label
-                    htmlFor={field.id}
-                    className="block text-sm font-medium text-gray-300 mb-2"
-                  >
-                    {field.label}
-                  </label>
-                  <input
-                    id={field.id}
-                    type={field.type}
-                    placeholder={field.placeholder}
-                    className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
-                  />
-                </div>
-                {idx === 0 && (
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-300 mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      placeholder="you@example.com"
-                      className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
-                    />
-                  </div>
-                )}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Name
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder="John Doe"
+                  required
+                  className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
+                />
               </div>
-            ))}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email Address
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  placeholder="you@example.com"
+                  required
+                  className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
+                />
+              </div>
+            </div>
+
             <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium text-gray-300 mb-2"
-              >
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                Subject
+              </label>
+              <input
+                id="subject"
+                type="text"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="How can we help?"
+                required
+                className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                 Your Message
               </label>
               <textarea
                 id="message"
                 rows={5}
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Tell us about your project..."
+                required
                 className="w-full bg-black/40 border border-gray-700/50 rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none text-white"
               />
             </div>
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               type="submit"
-              className="w-full mt-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition"
+              disabled={status === 'sending'}
+              className="w-full mt-4 bg-white text-black px-6 cursor-pointer py-3 rounded-lg font-medium text-lg hover:shadow-lg transition disabled:opacity-50"
             >
-              Send Message
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
             </motion.button>
+
+            {status === 'success' && (
+              <p className="mt-4 text-green-400">Thank you! Your message has been sent.</p>
+            )}
+            {status === 'error' && (
+              <p className="mt-4 text-red-500">Oops, something went wrong. Please try again.</p>
+            )}
           </form>
         </motion.div>
 
-        {/* Calendly Widget */}
+        {/* Contact & Location (right aligned) */}
         <motion.div
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-3xl p-6 border border-gray-700/50 hover:border-blue-500/30 transition"
+          className="flex flex-col justify-center space-y-6"
         >
-          <h3 className="text-xl font-semibold text-white mb-4">Schedule a Meeting</h3>
-          <div className="flex items-start space-x-3 mb-4">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
-              <Calendar className="w-5 h-5 text-white" />
+          {/* Head Office */}
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+            <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
+              <MapPin className="w-6 h-6 text-gray-200" />
             </div>
-            <div>
-              <h4 className="font-medium text-white">Book a Consultation</h4>
-              <p className="text-gray-400 leading-snug">
-                Choose a convenient time for a 30‑minute discussion about your AI project.
-              </p>
+            <h4 className="text-white text-lg font-semibold mb-2">Head Office</h4>
+            <p className="text-gray-300">5899 Alexys Highway Suite 678</p>
+            <p className="text-gray-400">NR, Nevada, USA</p>
+          </div>
+
+          {/* Phone */}
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+            <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
+              <Phone className="w-6 h-6 text-gray-200" />
             </div>
+            <h4 className="text-white text-lg font-semibold mb-2">Phone</h4>
+            <p className="text-gray-300">+1 (234) 567-890</p>
           </div>
-          <div className="rounded-xl overflow-hidden bg-black/40 border border-gray-700/50">
-            <InlineWidget
-              url="https://calendly.com/your-calendly-username/30min"
-              styles={{ height: 'clamp(320px, 45vh, 440px)', width: '100%' }}
-            />
-          </div>
-        </motion.div>
-      </div>
 
-      {/* Contact Info Cards BELOW */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Head Office */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50"
-        >
-          <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
-            <MapPin className="w-6 h-6 text-gray-200" />
+          {/* Email */}
+          <div className="bg-gradient-to-br from-blue-800/60 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50">
+            <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
+              <Mail className="w-6 h-6 text-gray-200" />
+            </div>
+            <h4 className="text-white text-lg font-semibold mb-2">Email</h4>
+            <p className="text-gray-300">info@qubasoftware.com</p>
           </div>
-          <h4 className="text-white text-lg font-semibold mb-2">Head Office</h4>
-          <p className="text-gray-300">5899 Alexys Highway Suite 678</p>
-          <p className="text-gray-400">NR, Nevada, USA</p>
-        </motion.div>
-
-        {/* Phone */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50"
-        >
-          <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
-            <Phone className="w-6 h-6 text-gray-200" />
-          </div>
-          <h4 className="text-white text-lg font-semibold mb-2">Phone</h4>
-          <p className="text-gray-300">+1 234 567 890</p>
-          <p className="text-gray-400">+1 234 567 890</p>
-        </motion.div>
-
-        {/* Email */}
-        <motion.div
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-xl rounded-2xl p-6 border border-gray-700/50"
-        >
-          <div className="w-12 h-12 rounded-full bg-gray-800/60 border border-gray-700 flex items-center justify-center mb-4">
-            <Mail className="w-6 h-6 text-gray-200" />
-          </div>
-          <h4 className="text-white text-lg font-semibold mb-2">Email</h4>
-          <p className="text-gray-300">customer@automx.com</p>
-          <p className="text-gray-400">client@automx.com</p>
         </motion.div>
       </div>
     </section>

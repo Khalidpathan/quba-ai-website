@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 
-// New FAQs tailored for QubaAI's advanced service model
+// New FAQs tailored for Quba's advanced service model
 const faqs = [
   {
     question: "What exactly is 'Outcome-as-a-Service'?",
@@ -40,10 +40,10 @@ export default function FAQSection() {
   return (
     <section
       id="faq"
-      className="bg-[#101010] py-20 px-6 sm:py-28"
+      className="bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 py-20 px-6 sm:py-28"
     >
       <div className="text-center">
-        <span className="bg-white/10 text-white text-sm font-medium px-3 py-1.5 rounded-full">
+        <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
           Have Questions?
         </span>
         <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white">
@@ -55,9 +55,9 @@ export default function FAQSection() {
         {faqs.map((faq, idx) => (
           <div
             key={idx}
-            className={`rounded-2xl bg-white/5 backdrop-blur-lg text-white
-                        transition-all duration-300 border border-white/10
-                        ${openIndex === idx ? "shadow-lg shadow-purple-500/10" : ""}`}
+            className={`rounded-2xl bg-black/30 backdrop-blur-lg text-white
+                        transition-all duration-300 border border-gray-700/50 hover:border-blue-500/30
+                        ${openIndex === idx ? "shadow-lg shadow-blue-500/10" : ""}`}
           >
             <button
               onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
@@ -68,7 +68,7 @@ export default function FAQSection() {
               </span>
               <ChevronDown
                 className={`w-5 h-5 ml-4 flex-shrink-0 transition-transform duration-300
-                  ${openIndex === idx ? "rotate-180 text-purple-300" : "text-gray-400"}`}
+                  ${openIndex === idx ? "rotate-180 text-blue-300" : "text-gray-400"}`}
               />
             </button>
             <AnimatePresence initial={false}>
@@ -85,7 +85,7 @@ export default function FAQSection() {
                   transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                   className="overflow-hidden"
                 >
-                  <div className="px-6 pb-5 text-gray-400 text-base leading-relaxed">
+                  <div className="px-6 pb-5 text-gray-400 text-medium leading-relaxed">
                     {faq.answer}
                   </div>
                 </motion.div>

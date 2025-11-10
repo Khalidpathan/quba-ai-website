@@ -55,10 +55,10 @@ const testimonials: TestimonialItem[] = [
 
 const TestimonialsSection: React.FC = () => {
   return (
-    <section className="bg-black py-16 px-4">
+    <section id="testimonials" className="bg-gradient-to-br from-gray-900 via-black to-gray-800 py-16 px-4 text-white">
       {/* Testimonials badge */}
       <div className="flex justify-center mb-4">
-        <span className="bg-zinc-800 text-gray-100 text-xs font-medium rounded px-3 py-1">Testimonials</span>
+        <span className="bg-blue-500/20 text-blue-200 text-xs font-medium rounded px-3 py-1 border border-blue-500/30">Testimonials</span>
       </div>
       {/* Heading & subtitle */}
       <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-3">
@@ -73,7 +73,7 @@ const TestimonialsSection: React.FC = () => {
           <div
             key={t.name}
             className={
-              `rounded-xl bg-gradient-to-br from-zinc-900 to-transparent p-6 ring-1 ${t.highlight ? "border-2 border-purple-600" : ""} shadow-md text-white flex flex-col justify-between min-h-[220px]`
+              `rounded-xl p-6 ring-1 ${t.highlight ? "border-2 border-blue-600" : "border border-gray-700/50"} bg-black/30 hover:border-blue-500/30 shadow-md text-white flex flex-col justify-between min-h-[220px]`
             }
           >
             <div>
@@ -81,7 +81,7 @@ const TestimonialsSection: React.FC = () => {
                 {/* Stars */}
                 <div className="flex space-x-1">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10 15l-5.878 3.09L5.454 13 1 8.865l6.093-.889L10 2l2.907 5.976L19 8.865 14.546 13l1.332 5.09z" />
                     </svg>
                   ))}

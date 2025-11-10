@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ShoppingCart, Menu, X } from 'lucide-react'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,11 +47,10 @@ const Header: React.FC = () => {
   }, [])
 
   const navigationItems = [
-    { name: 'QubaAI', href: '/', color: 'text-white', text: 'text-2xl' },
-    { name: 'Services', href: '/pricing', color: 'text-white' },
-    { name: 'Work', href: '/features', color: 'text-white' },
-    { name: 'Testimonials', href: '/features', color: 'text-white' },
-    { name: 'Contact', href: '/pricing', color: 'text-white' },
+    { name: 'Services', href: '#services', color: 'text-white' },
+    { name: 'Work', href: '#blog', color: 'text-white' },
+    { name: 'Testimonials', href: '#testimonials', color: 'text-white' },
+    { name: 'Contact', href: '#contact', color: 'text-white' },
     
   ]
 
@@ -60,22 +61,26 @@ const Header: React.FC = () => {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="fixed top-4 left-4 right-4 z-50"
+        className="fixed top-6 left-6 right-6 z-50"
       >
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <motion.div
-            className={`backdrop-blur-xl rounded-2xl px-4 py-2 border transition-all duration-500 ${
+            className={`backdrop-blur-xl rounded-2xl px-6 py-3 border transition-all duration-500 ${
               isScrolled 
-                ? 'border-white/30 bg-gradient-to-r from-gray-900/90 via-black/90 to-gray-800/90 shadow-2xl' 
-                : 'border-gray-700/30 bg-gradient-to-r from-gray-900/70 via-black/70 to-gray-800/70 shadow-xl'
+                ? 'border-blue-500/30 bg-white/10 shadow-2xl' 
+                : 'border-transparent bg-transparent shadow-none'
             }`}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
             <div className="flex justify-between items-center">
-
+              {/* Logo */}
+              <Link href="/" className="flex items-center gap-3 group">
+                <Image src="/quba.png" alt="Quba" width={42} height={42} className="rounded-full" />
+                <span className="text-white font-semibold tracking-tight text-2xl hidden sm:inline group-hover:text-blue-200 transition-colors">Quba</span>
+              </Link>
               {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-6">
+              <nav className="hidden md:flex items-center space-x-8">
                 {navigationItems.map((item, index) => (
                   <motion.a
                     key={item.name}
@@ -83,7 +88,7 @@ const Header: React.FC = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
-                    className={`${item.color} text-sm font-medium hover:text-blue-200 transition-all duration-300 relative group`}
+                    className={`${item.color} text-base font-medium hover:text-blue-200 transition-all duration-300 relative group`}
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-300 to-blue-200 group-hover:w-full transition-all duration-300"></span>
