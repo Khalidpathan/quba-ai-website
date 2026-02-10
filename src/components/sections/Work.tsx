@@ -10,12 +10,12 @@ const WorkSection = () => {
     <section id="blog" className="bg-gradient-to-t from-gray-900 via-blue-900/20 to-gray-900 text-white py-20 md:py-28">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center md:text-left mb-12">
-            <span className="bg-black text-white text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
-                Insights
-            </span>
-            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              From Our Use Cases
-            </h2>
+          <span className="bg-black text-white text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
+            Insights
+          </span>
+          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
+            From Our Use Cases
+          </h2>
         </div>
         <div className="space-y-6">
           {useCases.map((useCase) => (
@@ -42,8 +42,8 @@ const WorkSection = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <p className="text-sm text-black mb-1">{useCase.date}</p>
-                <h3 className="text-base md:text-lg font-semibold text-black group-hover:text-white transition-colors duration-300">
+                <p className="text-sm text-gray-400 mb-1">{useCase.date}</p>
+                <h3 className="text-base md:text-lg font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
                   {useCase.title}
                 </h3>
               </div>

@@ -51,7 +51,7 @@ const Header: React.FC = () => {
     { name: 'Work', href: '#blog', color: 'text-white' },
     { name: 'Testimonials', href: '#testimonials', color: 'text-white' },
     { name: 'Contact', href: '#contact', color: 'text-white' },
-    
+
   ]
 
 
@@ -65,11 +65,10 @@ const Header: React.FC = () => {
       >
         <div className="max-w-4xl mx-auto">
           <motion.div
-            className={`backdrop-blur-xl rounded-2xl px-6 py-3 border transition-all duration-500 ${
-              isScrolled 
-                ? 'border-blue-500/30 bg-white/10 shadow-2xl' 
+            className={`backdrop-blur-xl rounded-2xl px-6 py-3 border transition-all duration-500 ${isScrolled
+                ? 'border-blue-500/30 bg-white/10 shadow-2xl'
                 : 'border-transparent bg-transparent shadow-none'
-            }`}
+              }`}
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
@@ -94,7 +93,7 @@ const Header: React.FC = () => {
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-300 to-blue-200 group-hover:w-full transition-all duration-300"></span>
                   </motion.a>
                 ))}
-                
+
               </nav>
 
               {/* Enhanced Right Side Actions */}
@@ -105,7 +104,7 @@ const Header: React.FC = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  
+
                 </motion.div>
 
                 {/* Enhanced Login Button */}
@@ -121,7 +120,7 @@ const Header: React.FC = () => {
                 </motion.button>
 
                 {/* Enhanced Mobile Menu Button */}
-                <motion.button 
+                <motion.button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   className="md:hidden text-white hover:text-blue-200 transition-colors duration-200 p-1.5 rounded-lg hover:bg-white/10 border border-white/20"
                   whileHover={{ scale: 1.1 }}
@@ -179,7 +178,7 @@ const Header: React.FC = () => {
                         {item.name}
                       </motion.a>
                     ))}
-                    
+
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
