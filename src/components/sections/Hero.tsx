@@ -9,21 +9,21 @@ import { ArrowRight, BookOpen } from 'lucide-react';
 // Using text placeholders that represent industries you serve.
 // Replace with actual logos when you have them.
 const ClientLogos = () => {
-    const logos = [
-        <p key="1" className="font-semibold text-xl tracking-wider">Enterprise</p>,
-        <p key="2" className="font-semibold text-xl tracking-wider">SaaS</p>,
-        <p key="3" className="font-semibold text-xl tracking-wider">FinTech</p>,
-        <p key="4" className="font-semibold text-xl tracking-wider">E-commerce</p>,
-    ];
-    return (
-        <div className="flex w-full items-center justify-center gap-8 md:gap-12 flex-wrap">
-            {logos.map((logo, index) => (
-                <div key={index} className="text-gray-500 opacity-60 hover:opacity-100 transition-opacity duration-300">
-                    {logo}
-                </div>
-            ))}
+  const logos = [
+    <p key="1" className="font-semibold text-xl tracking-wider">Enterprise</p>,
+    <p key="2" className="font-semibold text-xl tracking-wider">SaaS</p>,
+    <p key="3" className="font-semibold text-xl tracking-wider">FinTech</p>,
+    <p key="4" className="font-semibold text-xl tracking-wider">E-commerce</p>,
+  ];
+  return (
+    <div className="flex w-full items-center justify-center gap-8 md:gap-12 flex-wrap">
+      {logos.map((logo, index) => (
+        <div key={index} className="text-gray-500 opacity-60 hover:opacity-100 transition-opacity duration-300">
+          {logo}
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 
@@ -67,10 +67,10 @@ const HeroSection = () => {
             className="mb-6"
             variants={itemVariants}
           >
-          
-          <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"></h2>
-             <span className="bg-blue-900/70 text-white text-sm font-medium px-4 py-2 rounded-full">
-                AI-Native | Outcome Based Pricing
+
+            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight"></h2>
+            <span className="bg-blue-900/70 text-white text-sm font-medium px-4 py-2 rounded-full">
+              AI-Native | Outcome Based Pricing
             </span>
           </motion.div>
 
@@ -79,8 +79,8 @@ const HeroSection = () => {
             className="text-5xl md:text-7xl font-bold tracking-tighter text-black"
             variants={itemVariants}
           >
-           Software That Thinks.
-            <br/>
+            Software That Thinks.
+            <br />
             Products That Evolve.
           </motion.h1>
 

@@ -12,11 +12,11 @@ const PilotVisual = () => (
   <div className="w-full bg-black/30 rounded-lg p-4 space-y-3 text-sm">
     <div className="flex justify-between items-center text-white/90">
       <p>Test Technical Feasibility</p>
-      <CheckCircle2 className="w-4 h-4 text-green-400"/>
+      <CheckCircle2 className="w-4 h-4 text-green-400" />
     </div>
     <div className="flex justify-between items-center text-white/90 border-t border-white/10 pt-3">
       <p>Validate in a Live Environment</p>
-      <CheckCircle2 className="w-4 h-4 text-green-400"/>
+      <CheckCircle2 className="w-4 h-4 text-green-400" />
     </div>
     <p className="text-xs text-purple-200/70 pt-2 text-center">Outcome: A data-backed decision to proceed with the MVP.</p>
   </div>
@@ -25,11 +25,11 @@ const PilotVisual = () => (
 // Visual for Phase 2: The MVP Build
 const MvpVisual = () => (
   <div className="w-full bg-[#0d0c13] rounded-lg p-4 font-mono text-xs flex flex-col h-full">
-     <div className="flex items-center gap-1.5 mb-3">
-       <div className="w-3 h-3 rounded-full bg-red-500"></div>
-       <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-       <div className="w-3 h-3 rounded-full bg-green-500"></div>
-     </div>
+    <div className="flex items-center gap-1.5 mb-3">
+      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    </div>
     <div className="flex-grow space-y-1 text-white/80">
       <p><span className="text-purple-400"># mvp_build_agent</span> running...</p>
       <p><span className="text-green-400">►</span> Building core features...</p>
@@ -46,7 +46,7 @@ const SprintVisual = () => (
     <p className="text-white/90 font-semibold">Iterative Growth Cycle</p>
     <div className="flex justify-between items-center text-white/80">
       <p>New Feature Deployed</p>
-      <Rocket className="w-4 h-4 text-blue-400"/>
+      <Rocket className="w-4 h-4 text-blue-400" />
     </div>
     <div className="flex justify-between items-center text-white/80 border-t border-white/10 pt-3">
       <p>Performance Review vs. KPIs</p>
@@ -54,7 +54,7 @@ const SprintVisual = () => (
     </div>
     <div className="flex justify-between items-center text-white/80 border-t border-white/10 pt-3">
       <p>Next Sprint Planning</p>
-      <RefreshCw className="w-4 h-4 text-purple-300 animate-spin"/>
+      <RefreshCw className="w-4 h-4 text-purple-300 animate-spin" />
     </div>
   </div>
 );
@@ -112,8 +112,8 @@ const ProcessSection = () => {
         <div className="mt-16 space-y-12">
           {/* Phase 1: Pilot/PoC */}
           <motion.div
-             className="bg-black/30 p-6 md:p-8 rounded-2xl border border-dashed border-gray-700/50 hover:border-blue-500/30"
-             variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
+            className="bg-black/30 p-6 md:p-8 rounded-2xl border border-dashed border-gray-700/50 hover:border-blue-500/30"
+            variants={itemVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }}
           >
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
@@ -134,7 +134,7 @@ const ProcessSection = () => {
 
           {/* Arrow Separator */}
           <div className="text-center text-blue-400">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto w-8 h-8"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto w-8 h-8"><path d="M12 5v14" /><path d="m19 12-7 7-7-7" /></svg>
           </div>
 
           {/* Phase 2 & 3 */}
@@ -153,7 +153,7 @@ const ProcessSection = () => {
                 {engagementPath.mvp.visual}
               </div>
             </motion.div>
-            
+
             {/* Sprints */}
             <motion.div
               className="bg-black/30 p-6 rounded-2xl border border-gray-700/50 hover:border-blue-500/30 flex flex-col"

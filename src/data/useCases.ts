@@ -1,53 +1,106 @@
+// @/data/useCases.ts
 export interface UseCase {
-  slug: string;
-  title: string;
-  date: string;
-  thumbnail: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
-  industry?: string;
-  technologies?: string[];
+    slug: string;
+    title: string;
+    date: string;
+    thumbnail: string;
+    industry?: string;
+    technologies?: string[];
+    challenge: string;
+    solution: string;
+    outcome: string;
 }
 
 export const useCases: UseCase[] = [
-  {
-    slug: 'autonomous-enterprise',
-    title: 'The New Era of the Autonomous Enterprise',
-    date: 'Oct 20, 2025',
-    thumbnail: 'https://images.unsplash.com/photo-1678496229919-1a7f7b3e3e3b?q=80&w=2070&auto=format&fit=crop',
-    industry: 'Enterprise',
-    technologies: ['GenAI', 'Automation', 'AI Agents'],
-    challenge: 'A Fortune 500 enterprise was struggling with manual processes across multiple departments, leading to operational inefficiencies, high error rates, and significant time delays. Their legacy systems couldn\'t adapt to changing business needs, and employees were spending 40% of their time on repetitive tasks. The company needed a solution that could automate complex workflows while maintaining accuracy and compliance.',
-    solution: 'We implemented an AI-native automation platform powered by GenAI agents that could understand context, make decisions, and execute tasks autonomously. Our solution integrated seamlessly with their existing systems through intelligent APIs and included:\n\n• Custom AI agents for each department (HR, Finance, Operations)\n• Natural language processing for document understanding and generation\n• Automated workflow orchestration with human-in-the-loop checkpoints\n• Real-time monitoring and analytics dashboard\n• Continuous learning system that improved performance over time',
-    outcome: 'The transformation delivered remarkable results:\n\n• 65% reduction in manual processing time across all departments\n• 90% accuracy improvement in document processing and data entry\n• $2.5M annual cost savings from operational efficiency\n• 50% faster decision-making through automated insights\n• Employee satisfaction increased by 40% as teams focused on strategic work\n• Zero compliance violations with automated audit trails\n\nThe company now operates as a truly autonomous enterprise, with AI agents handling routine operations while human teams focus on innovation and growth.'
-  },
-  {
-    slug: 'genai-in-finance',
-    title: 'How GenAI is Transforming Legacy Financial Systems',
-    date: 'Oct 15, 2025',
-    thumbnail: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2070&auto=format&fit=crop',
-    industry: 'Financial Services',
-    technologies: ['GenAI', 'LLM', 'RAG', 'Financial AI'],
-    challenge: 'A leading financial institution was operating on 20-year-old legacy systems that couldn\'t process modern financial data formats or provide real-time insights. Their analysts spent weeks manually reviewing transactions, generating reports, and identifying anomalies. The system couldn\'t handle the volume of modern financial data, leading to delayed risk assessments and missed opportunities. Regulatory compliance was becoming increasingly difficult to maintain with manual processes.',
-    solution: 'We built a comprehensive GenAI-powered financial intelligence platform that transformed their entire data processing pipeline:\n\n• Advanced RAG (Retrieval-Augmented Generation) system for real-time financial document analysis\n• Custom LLM fine-tuned on financial regulations and market data\n• Automated transaction monitoring and anomaly detection\n• Intelligent report generation that adapts to regulatory requirements\n• Natural language query interface for instant financial insights\n• Seamless integration with legacy systems through intelligent middleware\n• Automated compliance checking and audit trail generation',
-    outcome: 'The financial institution achieved unprecedented efficiency and accuracy:\n\n• 80% reduction in time spent on financial analysis and reporting\n• Real-time risk assessment capabilities (previously took 2-3 weeks)\n• 95% accuracy in anomaly detection, catching fraud patterns previously missed\n• $5M saved annually through automated compliance and reduced manual errors\n• 70% faster decision-making on investment opportunities\n• Complete regulatory compliance with automated documentation\n• Analysts now focus on strategic insights rather than data processing\n\nThe institution has become a leader in AI-powered financial services, setting new industry standards for efficiency and accuracy.'
-  },
-  {
-    slug: 'scalable-mlops',
-    title: 'Building a Scalable MLOps Pipeline for Startups',
-    date: 'Oct 08, 2025',
-    thumbnail: 'https://images.unsplash.com/photo-1696274294022-b5f78b03ac2a?q=80&w=2070&auto=format&fit=crop',
-    industry: 'Technology',
-    technologies: ['MLOps', 'ML Infrastructure', 'Cloud AI', 'DevOps'],
-    challenge: 'A fast-growing AI startup was struggling to scale their machine learning operations. They had multiple ML models in production but no standardized way to deploy, monitor, or update them. Model deployments took weeks, and there was no visibility into model performance in production. The team was constantly firefighting production issues, and new model versions couldn\'t be rolled out quickly enough to meet business demands. The lack of proper MLOps infrastructure was becoming a critical bottleneck.',
-    solution: 'We designed and implemented a complete MLOps infrastructure from the ground up:\n\n• Automated CI/CD pipeline specifically for ML models with version control\n• Model registry and experiment tracking system\n• Automated testing framework for model validation before deployment\n• Real-time monitoring and alerting for model performance and drift\n• A/B testing framework for safe model rollouts\n• Automated retraining pipelines triggered by performance degradation\n• Scalable inference infrastructure with auto-scaling capabilities\n• Comprehensive logging and observability dashboard\n• Disaster recovery and rollback mechanisms',
-    outcome: 'The startup transformed their ML operations and achieved rapid scaling:\n\n• 90% reduction in model deployment time (from weeks to hours)\n• 99.9% uptime for all production ML models\n• 75% reduction in production incidents through proactive monitoring\n• Ability to deploy 10x more models with the same team size\n• 60% faster time-to-market for new ML features\n• Complete visibility into model performance with real-time dashboards\n• Automated model retraining saved 40 hours per week of engineering time\n• Zero-downtime deployments with instant rollback capabilities\n\nThe startup can now scale their ML operations effortlessly, deploying new models daily and maintaining high reliability across all production systems.'
-  }
+    {
+        slug: 'genai-clinical-scribing-healthcare',
+        title: 'Reducing Physician Burnout & Claim Denials with GenAI-Powered Clinical Scribing',
+        date: 'January 2026',
+        thumbnail: '/images/use-cases/clinical-scribing.jpg',
+        industry: 'Healthcare',
+        technologies: ['GenAI', 'HIPAA-Compliant Voice-to-Text', 'Large Language Models', 'EHR Integration'],
+        challenge: `A multi-location Urgent Care network in the Midwest (USA) serving 15,000+ patients annually was facing a 25% physician turnover rate due to administrative burnout. Doctors were spending 2 hours each night finishing "pajama time" documentation. Additionally, manual entry errors were leading to a 12% claim denial rate due to mismatched ICD-10 and CPT codes. They needed a solution to automate documentation without disrupting the clinical workflow.
+
+Key pain points:
+• 25% physician turnover rate due to burnout
+• 2 hours nightly "pajama time" documentation per doctor
+• 12% claim denial rate from coding mismatches
+• Manual entry errors impacting revenue cycle
+• Need for non-disruptive workflow automation`,
+        solution: `We engineered a HIPAA-compliant, voice-to-text ambient listening solution integrated directly into their existing EHR:
+
+• Ambient Listening Module: Developed a mobile-first interface that listens to patient-doctor conversations in real-time, filtering out small talk and capturing critical clinical facts (Subjective & Objective data)
+• GenAI Summarization Engine: Implemented a fine-tuned Large Language Model (LLM) to auto-generate structured SOAP notes in the provider's preferred style, eliminating manual typing
+• Real-Time "Claim Scrubber": Built an automated validation layer that cross-references generated diagnosis codes against procedure codes before note signing, flagging potential denial risks immediately and ensuring "clean claims" at the source`,
+        outcome: `Impact exceeded expectations:
+
+• Documentation Time: Reduced by 40%, saving approximately 90 minutes per doctor per day
+• Revenue Cycle: Claim denials dropped from 12% to 4% within 3 months, significantly improving cash flow
+• Adoption: Achieved 100% provider adoption within 4 weeks
+• Job Satisfaction: Doctors reporting higher satisfaction with more face time with patients
+• Workflow: Seamless integration without disrupting clinical operations`,
+    },
+    {
+        slug: 'patient-recall-chronic-disease-management',
+        title: 'Closing the "Care Gap": Automated Patient Recall System for Chronic Disease Management',
+        date: 'December 2025',
+        thumbnail: '/images/use-cases/patient-recall.jpg',
+        industry: 'Healthcare',
+        technologies: ['Interoperability Bridge', 'Risk Stratification AI', 'WhatsApp & SMS Bots', 'Real-time Dashboards'],
+        challenge: `A specialized Cardiology Practice in Florida managing high-risk patients with hypertension and heart failure was losing significant revenue and risking patient health due to "Patient Leakage." About 30% of patients were missing their 6-month follow-ups or failing to adhere to medication plans. The front-desk staff was overwhelmed making manual phone calls, and patient data was siloed between their Appointment Scheduler and their EMR.
+
+Critical challenges:
+• 30% patient leakage from missed follow-ups
+• Siloed data between PMS and EMR systems
+• Overwhelmed front-desk staff with manual outreach
+• Revenue loss from unfilled appointment slots
+• Patient health risks from poor adherence`,
+        solution: `We built an "Interoperability Bridge" that unified their data and launched an automated engagement engine:
+
+• Unified Data Pipeline: Created a middleware service that syncs data between the Practice Management System (PMS) and EMR every 15 minutes, ensuring a "Single Source of Truth" for patient records
+• Smart Risk Stratification: Developed algorithms that automatically flag "High Risk" patients who haven't visited in 180+ days
+• Omnichannel Bot: Deployed an intelligent WhatsApp and SMS bot that allows patients to confirm or reschedule directly in chat without calling the office
+• Live Dashboard: Built a visual dashboard for the Medical Director to view "Care Gap Closure" rates and appointment conversions in real-time`,
+        outcome: `Transformative results achieved:
+
+• Patient Retention: "No-Show" rates dropped by 22%, ensuring better continuity of care
+• Revenue Growth: Generated an additional $180k/year in recovered appointment revenue
+• Efficiency: Front-desk call volume reduced by 60%, allowing staff to focus on in-clinic patient experience
+• Data Unification: Single source of truth established across systems
+• Patient Experience: Improved engagement through convenient omnichannel communication`,
+    },
+    {
+        slug: 'automated-credit-decision-sme-lending',
+        title: 'Accelerating SME Lending: Automated Credit Decision Engine for a Regional Fintech',
+        date: 'November 2025',
+        thumbnail: '/images/use-cases/fintech-lending.jpg',
+        industry: 'BFSI (Fintech)',
+        technologies: ['Open Banking APIs', 'Fraud Detection AI', 'Auto-Spreading Parser', 'Rule-Based Decision Engine'],
+        challenge: `A US-based Fintech lender focused on providing working capital loans to Small & Medium Businesses (SMEs) had a loan approval process that took 5–7 days, causing them to lose customers to faster, larger banks. The bottleneck was manual underwriting: analysts had to manually download bank statements, verify business entity status, and calculate debt-service coverage ratios (DSCR) using Excel.
+
+Major bottlenecks:
+• 5-7 day loan approval timeline
+• Manual underwriting process with Excel spreadsheets
+• Losing customers to faster competitors
+• High operational costs per loan origination
+• Limited scalability without hiring more staff`,
+        solution: `We developed an "Automated Underwriting Workbench" that reduced the "File-to-Decision" time from days to minutes:
+
+• Open Banking Integration: Integrated banking APIs to fetch 12 months of applicant bank transaction data instantly, removing the need for customers to upload PDFs
+• Fraud Detection Layer: Built a pattern-recognition engine to detect "synthetic IDs" and circular transactions (wash trading) to flag high-risk applications automatically
+• Auto-Spreading Parser: Developed a tool that reads tax returns and bank statements, automatically extracting key financial ratios (EBITDA, Cash Flow) and populating the risk model
+• Decision Matrix: Implemented a rule-based engine that auto-approves low-risk loans and routes only "gray area" applications to human underwriters`,
+        outcome: `Outstanding business impact delivered:
+
+• Speed: Time-to-Decision reduced from 5 days to 4 hours
+• Cost Efficiency: Operational cost of origination per loan dropped by 65%
+• Scalability: Successfully processed 3x the loan volume in Q4 without hiring additional underwriters
+• Customer Experience: Dramatically improved with near-instant decisions
+• Risk Management: Enhanced fraud detection and automated risk assessment
+• Competitive Advantage: Now competing effectively with larger banks on speed`,
+    },
 ];
 
 export function getUseCaseBySlug(slug: string): UseCase | undefined {
-  return useCases.find(useCase => useCase.slug === slug);
+    return useCases.find((useCase) => useCase.slug === slug);
 }
-
-
