@@ -16,7 +16,7 @@ const navigation = {
   social: [
     { name: 'GitHub', href: 'https://github.com/Khalidpathan', icon: Github },
     { name: 'Twitter', href: 'https://twitter.com/Khalidpathan', icon: Twitter },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/Khalidpathan', icon: Linkedin },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/qubasoftware', icon: Linkedin },
     { name: 'Email', href: 'mailto:info@quba-ai.com', icon: Mail },
   ],
 };

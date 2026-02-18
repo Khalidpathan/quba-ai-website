@@ -16,7 +16,7 @@ export const useCases: UseCase[] = [
         slug: 'genai-clinical-scribing-healthcare',
         title: 'Reducing Physician Burnout & Claim Denials with GenAI-Powered Clinical Scribing',
         date: 'January 2026',
-        thumbnail: '/images/use-cases/clinical-scribing.jpg',
+        thumbnail: '/images/use-cases/clinical-scribing.svg',
         industry: 'Healthcare',
         technologies: ['GenAI', 'HIPAA-Compliant Voice-to-Text', 'Large Language Models', 'EHR Integration'],
         challenge: `A multi-location Urgent Care network in the Midwest (USA) serving 15,000+ patients annually was facing a 25% physician turnover rate due to administrative burnout. Doctors were spending 2 hours each night finishing "pajama time" documentation. Additionally, manual entry errors were leading to a 12% claim denial rate due to mismatched ICD-10 and CPT codes. They needed a solution to automate documentation without disrupting the clinical workflow.
@@ -44,7 +44,7 @@ Key pain points:
         slug: 'patient-recall-chronic-disease-management',
         title: 'Closing the "Care Gap": Automated Patient Recall System for Chronic Disease Management',
         date: 'December 2025',
-        thumbnail: '/images/use-cases/patient-recall.jpg',
+        thumbnail: '/images/use-cases/patient-recall.svg',
         industry: 'Healthcare',
         technologies: ['Interoperability Bridge', 'Risk Stratification AI', 'WhatsApp & SMS Bots', 'Real-time Dashboards'],
         challenge: `A specialized Cardiology Practice in Florida managing high-risk patients with hypertension and heart failure was losing significant revenue and risking patient health due to "Patient Leakage." About 30% of patients were missing their 6-month follow-ups or failing to adhere to medication plans. The front-desk staff was overwhelmed making manual phone calls, and patient data was siloed between their Appointment Scheduler and their EMR.
@@ -73,7 +73,7 @@ Critical challenges:
         slug: 'automated-credit-decision-sme-lending',
         title: 'Accelerating SME Lending: Automated Credit Decision Engine for a Regional Fintech',
         date: 'November 2025',
-        thumbnail: '/images/use-cases/fintech-lending.jpg',
+        thumbnail: '/images/use-cases/fintech-lending.svg',
         industry: 'BFSI (Fintech)',
         technologies: ['Open Banking APIs', 'Fraud Detection AI', 'Auto-Spreading Parser', 'Rule-Based Decision Engine'],
         challenge: `A US-based Fintech lender focused on providing working capital loans to Small & Medium Businesses (SMEs) had a loan approval process that took 5–7 days, causing them to lose customers to faster, larger banks. The bottleneck was manual underwriting: analysts had to manually download bank statements, verify business entity status, and calculate debt-service coverage ratios (DSCR) using Excel.
