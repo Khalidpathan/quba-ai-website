@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown, ShoppingCart, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -49,9 +49,7 @@ const Header: React.FC = () => {
   const navigationItems = [
     { name: 'Services', href: '#services', color: 'text-white' },
     { name: 'Work', href: '#blog', color: 'text-white' },
-    { name: 'Testimonials', href: '#testimonials', color: 'text-white' },
-    { name: 'Contact', href: '#contact', color: 'text-white' },
-
+    { name: 'FAQ', href: '#faq', color: 'text-white' },
   ]
 
 
@@ -108,7 +106,8 @@ const Header: React.FC = () => {
                 </motion.div>
 
                 {/* Enhanced Login Button */}
-                <motion.button
+                <motion.a
+                  href="#contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-white/20 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-white/30 transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden group border border-white/20"
@@ -116,8 +115,8 @@ const Header: React.FC = () => {
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-blue-500/30 to-purple-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   />
-                  <span className="relative">Book a Call</span>
-                </motion.button>
+                  <span className="relative">Get in touch</span>
+                </motion.a>
 
                 {/* Enhanced Mobile Menu Button */}
                 <motion.button
