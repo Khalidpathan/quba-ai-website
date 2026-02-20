@@ -1,0 +1,15 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#F0FDF4"/>
+  <rect x="80" y="80" width="1040" height="590" rx="28" fill="white" stroke="#BBF7D0" stroke-width="4"/>
+  <rect x="130" y="130" width="320" height="500" rx="24" fill="#DCFCE7" stroke="#86EFAC" stroke-width="4"/>
+  <rect x="165" y="200" width="250" height="40" rx="12" fill="#22C55E"/>
+  <rect x="165" y="265" width="170" height="22" rx="8" fill="#86EFAC"/>
+  <rect x="165" y="300" width="220" height="22" rx="8" fill="#BBF7D0"/>
+  <rect x="165" y="335" width="200" height="22" rx="8" fill="#DCFCE7"/>
+  <circle cx="915" cy="250" r="120" fill="#22C55E"/>
+  <path d="M850 250L890 290L980 200" stroke="white" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="560" y="430" width="470" height="44" rx="14" fill="#15803D"/>
+  <rect x="560" y="490" width="390" height="26" rx="8" fill="#86EFAC"/>
+  <text x="560" y="225" fill="#166534" font-family="Arial, sans-serif" font-size="42" font-weight="700">Patient Recall Bot</text>
+  <text x="585" y="460" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="700">Automated Follow-Up Confirmed</text>
+</svg>

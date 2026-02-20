@@ -1,0 +1,19 @@
+<svg width="1200" height="750" viewBox="0 0 1200 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="750" fill="#EEF2FF"/>
+  <rect x="80" y="80" width="1040" height="590" rx="28" fill="white" stroke="#C7D2FE" stroke-width="4"/>
+  <rect x="130" y="140" width="520" height="120" rx="20" fill="#4F46E5"/>
+  <text x="165" y="215" fill="white" font-family="Arial, sans-serif" font-size="40" font-weight="700">SME Credit Decision Engine</text>
+  <rect x="130" y="300" width="300" height="330" rx="20" fill="#E0E7FF"/>
+  <rect x="165" y="360" width="230" height="22" rx="8" fill="#818CF8"/>
+  <rect x="165" y="397" width="190" height="22" rx="8" fill="#A5B4FC"/>
+  <rect x="165" y="434" width="220" height="22" rx="8" fill="#C7D2FE"/>
+  <rect x="165" y="500" width="170" height="48" rx="12" fill="#4338CA"/>
+  <text x="205" y="532" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="700">Approve</text>
+  <rect x="500" y="300" width="560" height="330" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="4"/>
+  <polyline points="560,520 660,460 760,480 860,390 960,350" stroke="#4F46E5" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="560" cy="520" r="12" fill="#4F46E5"/>
+  <circle cx="660" cy="460" r="12" fill="#4F46E5"/>
+  <circle cx="760" cy="480" r="12" fill="#4F46E5"/>
+  <circle cx="860" cy="390" r="12" fill="#4F46E5"/>
+  <circle cx="960" cy="350" r="12" fill="#4F46E5"/>
+</svg>

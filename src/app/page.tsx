@@ -7,7 +7,6 @@ import Footer from '@/components/layout/Footer'
 import FloatingElements from '@/components/animations/FloatingElements'
 import Features from '@/components/sections/Features'
 import Process from '@/components/sections/Process'
-import Testimonials from '@/components/sections/Testimonials'
 import FAQ from '@/components/sections/FAQ'
 export default function Home() {
   return (
@@ -19,7 +18,6 @@ export default function Home() {
       <Process />
       <Services />
       <Work />
-      <Testimonials />
       <FAQ />
       <Contact />
       <Footer />

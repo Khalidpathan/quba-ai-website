@@ -36,42 +36,44 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <main className="relative overflow-hidden min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
-
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4">
+    <main className="relative overflow-hidden min-h-screen bg-white text-gray-900">
+      <section className="relative pt-32 pb-20 px-4 bg-gradient-to-b from-blue-50 via-white to-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
+          <Link
+            href="/#blog"
+            className="inline-flex items-center gap-2 text-sm text-blue-700 hover:text-blue-800 mb-8 font-medium"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Use Cases
+          </Link>
 
-          {/* Header Info */}
           <div className="flex flex-wrap items-center gap-4 mb-6">
-            <span className="bg-blue-500/20 text-blue-200 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-500/30">
+            <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1.5 rounded-full border border-blue-200">
               Use Case
             </span>
             {useCase.industry && (
-              <div className="flex items-center gap-2 text-gray-400">
+              <div className="flex items-center gap-2 text-gray-600">
                 <Building2 className="w-4 h-4" />
                 <span className="text-sm">{useCase.industry}</span>
               </div>
             )}
-            <div className="flex items-center gap-2 text-gray-400">
+            <div className="flex items-center gap-2 text-gray-600">
               <Calendar className="w-4 h-4" />
               <span className="text-sm">{useCase.date}</span>
             </div>
           </div>
 
-          {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 mb-8">
             {useCase.title}
           </h1>
 
-          {/* Technologies */}
           {useCase.technologies && useCase.technologies.length > 0 && (
             <div className="flex flex-wrap items-center gap-3 mb-12">
-              <Code className="w-5 h-5 text-gray-400" />
+              <Code className="w-5 h-5 text-gray-600" />
               {useCase.technologies.map((tech, index) => (
                 <span
                   key={index}
-                  className="bg-gray-800/50 text-gray-300 text-sm font-medium px-3 py-1.5 rounded-lg border border-gray-700/50"
+                  className="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1.5 rounded-lg border border-gray-200"
                 >
                   {tech}
                 </span>
@@ -79,8 +81,7 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
             </div>
           )}
 
-          {/* Hero Image */}
-          <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden border border-gray-700/50">
+          <div className="relative w-full h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-white">
             <Image
               src={useCase.thumbnail}
               alt={useCase.title}
@@ -88,85 +89,66 @@ export default async function UseCasePage({ params }: { params: Promise<{ slug: 
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
           </div>
         </div>
       </section>
 
-      {/* Content Sections */}
-      <section className="px-4 pb-20">
+      <section className="px-4 pb-20 pt-16">
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Challenge Section */}
           <div className="relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-red-500 to-red-600 rounded-full" />
             <div className="pl-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-red-500/20 border border-red-500/30 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center">
                   <span className="text-2xl">⚠️</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  The Challenge
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">The Challenge</h2>
               </div>
               <div className="max-w-none">
-                <p className="text-gray-300 leading-relaxed whitespace-pre-line text-lg">
-                  {useCase.challenge}
-                </p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">{useCase.challenge}</p>
               </div>
             </div>
           </div>
 
-          {/* Solution Section */}
           <div className="relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full" />
             <div className="pl-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-blue-500/20 border border-blue-500/30 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-blue-50 border border-blue-200 flex items-center justify-center">
                   <span className="text-2xl">💡</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  Our Solution
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Solution</h2>
               </div>
               <div className="max-w-none">
-                <p className="text-gray-300 leading-relaxed whitespace-pre-line text-lg">
-                  {useCase.solution}
-                </p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">{useCase.solution}</p>
               </div>
             </div>
           </div>
 
-          {/* Outcome Section */}
           <div className="relative">
             <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 to-green-600 rounded-full" />
             <div className="pl-8">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-green-500/20 border border-green-500/30 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-green-50 border border-green-200 flex items-center justify-center">
                   <span className="text-2xl">🎯</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white">
-                  The Outcome
-                </h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">The Outcome</h2>
               </div>
               <div className="max-w-none">
-                <p className="text-gray-300 leading-relaxed whitespace-pre-line text-lg">
-                  {useCase.outcome}
-                </p>
+                <p className="text-gray-700 leading-relaxed whitespace-pre-line text-lg">{useCase.outcome}</p>
               </div>
             </div>
           </div>
 
-          {/* CTA Section */}
-          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ready to Transform Your Business?
-            </h3>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-              Let's discuss how we can help you achieve similar results with AI-native solutions.
+          <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-100 text-center">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Ready to Transform Your Business?</h3>
+            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">
+              Let&apos;s discuss how we can help you achieve similar results with AI-native solutions.
             </p>
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+              className="inline-flex items-center justify-center bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold px-8 py-4 rounded-lg text-lg hover:shadow-lg hover:shadow-blue-200 transition-all duration-300"
             >
               Get Started Today
             </Link>
